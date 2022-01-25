@@ -3,6 +3,7 @@ import { ConfigService } from "@nestjs/config";
 import * as querystring from "querystring";
 import axios, { AxiosInstance } from "axios";
 import { GitHubSearchPage, GitHubUser, GitHubUserFull } from "@type/GitHub";
+import axiosThrottle from "axios-request-throttle";
 
 
 const API_BASE_URL = "https://api.github.com";
@@ -21,13 +22,14 @@ const DEFAULT_SEARCH_PARAMS = {
 
 @Injectable()
 export class GitHubService {
-    private http: AxiosInstance;
+    private readonly http: AxiosInstance;
 
     constructor(private configService: ConfigService) {
         this.http = axios.create({
             baseURL: API_BASE_URL,
         });
-        this.http.defaults.headers.common['Authorization'] = `token ${configService.get('GITHUB_API_TOKEN')}`
+        this.http.defaults.headers.common['Authorization'] = `token ${configService.get('GITHUB_API_TOKEN')}`;
+        axiosThrottle.use(this.http, { requestsPerSecond: 16 });
     }
 
     async fetchAll() {
