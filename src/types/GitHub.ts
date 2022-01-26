@@ -1,12 +1,12 @@
-export interface GitHubSearchPage<T> {
+export type GitHubSearchPage<T> = {
     total_count: number,
     incomplete_results: boolean,
     items: T[]
-}
+};
 
-export interface GitHubUser {
+export type GitHubUser = {
     login: string;
-    id: number,
+    id: string,
     node_id: string,
     avatar_url: string,
     gravatar_id: '',
@@ -23,9 +23,9 @@ export interface GitHubUser {
     received_events_url: string,
     type: string,
     site_admin: false
-}
+};
 
-export interface GitHubUserFull extends GitHubUser {
+export type GitHubUserFull = GitHubUser & {
     name: string;
     company: string | null;
     blog: string;

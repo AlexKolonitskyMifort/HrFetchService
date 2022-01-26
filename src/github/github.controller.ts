@@ -1,7 +1,7 @@
 import { Controller, Get } from '@nestjs/common';
-import { GitHubService } from "./git-hub.service";
+import { GitHubService } from './github.service';
 
-@Controller('git-hub')
+@Controller('github')
 export class GitHubController {
     constructor(private githubService: GitHubService) {}
 

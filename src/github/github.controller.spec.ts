@@ -1,15 +1,15 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { GitHubController } from './git-hub.controller';
+import { GithubController } from './github.controller';
 
 describe('GitHubController', () => {
-  let controller: GitHubController;
+  let controller: GithubController;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      controllers: [GitHubController],
+      controllers: [GithubController],
     }).compile();
 
-    controller = module.get<GitHubController>(GitHubController);
+    controller = module.get<GithubController>(GithubController);
   });
 
   it('should be defined', () => {
