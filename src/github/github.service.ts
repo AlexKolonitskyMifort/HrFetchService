@@ -94,7 +94,7 @@ export class GitHubService {
         this.logger.log(`Updated person count: ${updatedPersonCount}`);
     }
 
-    async fetch(username: string) {
+    private async fetch(username: string) {
         try {
             const { data } = await this.http.get<GitHubUserFull>(`${API_URL_USER}/${username}`);
             return data;

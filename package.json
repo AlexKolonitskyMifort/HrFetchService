@@ -28,6 +28,7 @@
     "@nestjs/typeorm": "^8.0.3",
     "axios": "^0.25.0",
     "axios-request-throttle": "^1.0.0",
+    "helmet": "^5.0.2",
     "mysql2": "^2.3.3",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
@@ -63,6 +64,9 @@
       "json",
       "ts"
     ],
+    "moduleNameMapper": {
+      "@type/(.*)": "<rootDir>/types/$1"
+    },
     "rootDir": "src",
     "testRegex": ".*\\.spec\\.ts$",
     "transform": {
