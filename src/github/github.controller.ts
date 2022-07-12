@@ -7,6 +7,6 @@ export class GitHubController {
 
     @Get()
     async fetch() {
-        this.githubService.fetchAll();
+        this.githubService.fetchAll(); // Hello
     }
 }
